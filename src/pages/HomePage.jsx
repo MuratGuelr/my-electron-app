@@ -4,7 +4,7 @@ import MiddleArticle from "../components/MiddleArticle";
 
 const HomePage = () => {
   return (
-    <div className="p-5 bg-white dark:bg-gray-900 antialiased justify-center">
+    <div className="p-5 bg-gray-900 antialiased justify-center">
       <HomePageSlider />
       <HomePageTitle />
       <MiddleArticle />

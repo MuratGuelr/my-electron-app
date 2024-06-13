@@ -63,7 +63,7 @@ const HomePageSlider = () => {
           <div className="mx-auto p-11 -mt-20 -mb-6">
             <figure className="transition-all duration-300 cursor-pointer mb-2">
               {HomeNewExtensions[0].isNew ? (
-                <div className="absolute inline-flex items-center justify-center w-20 h-10 text-xl font-bold text-white bg-green-500 border-2 border-white rounded dark:border-gray-900 z-20">
+                <div className="absolute inline-flex items-center justify-center w-20 h-10 text-xl font-bold text-white bg-green-500 border-2 rounded border-gray-900 z-20">
                   New
                 </div>
               ) : (
@@ -96,7 +96,7 @@ const HomePageSlider = () => {
               >
                 <Link to={extension.to}>
                   {extension.isNew ? (
-                    <span className=" absolute bg-green-100 text-green-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-green-900 dark:text-green-300 z-2 mt-1 ml-1">
+                    <span className=" absolute text-xs font-medium me-2 px-2.5 py-0.5 rounded-full bg-green-900 text-green-300 z-2 mt-1 ml-1">
                       New{" "}
                     </span>
                   ) : (

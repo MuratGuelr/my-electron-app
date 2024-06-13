@@ -1,4 +1,5 @@
 import AdobeExtensionCard from "../components/AdobeExtensionCard";
+import PageTitles from "../components/PageTitles";
 
 const AdobePremiere = () => {
   const PremiereExtensions = [
@@ -78,6 +79,7 @@ const AdobePremiere = () => {
   return (
     <div className="bg-gray-950">
       <div className="mx-auto max-w-screen-2xl lg:py-6">
+        <PageTitles title={"Adobe Premiere Pro"} />
         <AdobeExtensionCard PremiereExtensions={PremiereExtensions} />
       </div>
     </div>
