@@ -1,5 +1,6 @@
 {
   "name": "my-electron-app",
+  "productName": "Download App",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -12,6 +13,8 @@
     "electron": "wait-on tcp:5173 && electron ."
   },
   "dependencies": {
+    "firebase": "^10.12.2",
+    "flowbite": "^2.3.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^5.2.1",
