@@ -4,9 +4,9 @@ const path = require("path");
 function createWindow() {
   const mainWindow = new BrowserWindow({
     width: 1280,
-    height: 720,
-    minWidth: 800,
-    minHeight: 600,
+    height: 1000,
+    minWidth: 1080,
+    minHeight: 1080,
     icon: path.join(__dirname, "assets", "app.ico"),
     webPreferences: {
       preload: path.join(__dirname, "preload.js"),

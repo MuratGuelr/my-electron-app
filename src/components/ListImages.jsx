@@ -94,7 +94,7 @@ const ListImages = () => {
     <>
       {userDetails ? (
         <>
-          <div className="grid gap-2 grid-cols-2">
+          <div className="grid grid-cols-3 gap-3 p-3 ml-5">
             {images.map((url, index) => (
               <div key={index}>
                 <TiDelete
@@ -103,7 +103,7 @@ const ListImages = () => {
                   onClick={() => handleDelete(url)}
                 />
                 <img
-                  className="cursor-pointer hover:ring h-20"
+                  className="cursor-pointer hover:ring h-20 object-cover rounded"
                   src={url}
                   alt={`User ${index + 1} image`}
                   onClick={() => handleClick(url)}

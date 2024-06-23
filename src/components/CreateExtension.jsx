@@ -16,11 +16,13 @@ const CreateExtension = () => {
   );
   const [isActive, setIsActive] = useState("active");
   const [isPremium, setIsPremium] = useState("");
+  const [category, setCategory] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     const extensionData = {
+      category,
       title,
       image,
       download,
@@ -54,6 +56,7 @@ const CreateExtension = () => {
   };
 
   const handleClick = () => {
+    setCategory("");
     setTitle("");
     setImage("");
     setDownload("");
@@ -201,7 +204,7 @@ const CreateExtension = () => {
             Which App's Extension?
           </label>
           <div>
-            <div className="py-2.5 px-2 text-sm font-medium text-center border rounded-s-lg focus:ring-4 focus:outline-none  bg-gray-700 hover:bg-gray-600 focus:ring-gray-700 text-white border-gray-600">
+            <div className="py-2.5 px-2 text-sm font-medium text-center border rounded-s-lg focus:ring-4 focus:outline-none bg-gray-700 hover:bg-gray-600 focus:ring-gray-700 text-white border-gray-600">
               <div className="grid grid-cols-4 gap-5">
                 <img
                   src="../img/adobe-premiere/premiere-logo/premiere.png"
@@ -241,6 +244,54 @@ const CreateExtension = () => {
               </option>
             </select>
           </div>
+        </div>
+
+        <div>
+          <div className="px-2 text-sm font-medium text-center border rounded-s-lg focus:ring-4 focus:outline-none bg-gray-700 hover:bg-gray-600 focus:ring-gray-700 text-white border-gray-600">
+            <label
+              htmlFor="whichApp"
+              className="block mb-1 mt-1 text-sm font-medium text-white"
+            >
+              Which Category?
+            </label>
+            <div className="grid grid-cols-4 gap-5">
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/d/d9/HandBrake_Icon.png"
+                className="w-20"
+              />
+              <img
+                src="https://upload.wikimedia.org/wikipedia/tr/5/57/Discord_logo_old.png"
+                className="w-20"
+              />
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Steam_Logo.png"
+                className="w-20"
+              />
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Audacity_Logo.svg/2048px-Audacity_Logo.svg.png"
+                className="w-20"
+              />
+            </div>
+          </div>
+          <select
+            id="category"
+            className="border text-l rounded-lg block w-full bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500 mb-5 text-center"
+            value={category}
+            onChange={(e) => setCategory(e.target.value)}
+          >
+            <option value=""></option>
+            <option value="geliştirici">Geliştirici</option>
+            <option value="verimlilik">Verimlilik</option>
+            <option value="antivirüs">Antivirüs</option>
+            <option value="tarayıcı">Tarayıcı</option>
+            <option value="iletişim">İletişim</option>
+            <option value="driver">Driver</option>
+            <option value="video">Video</option>
+            <option value="oyun">Oyun</option>
+            <option value="ofis">Ofis</option>
+            <option value="edit">Edit</option>
+            <option value="ses">Ses</option>
+          </select>
         </div>
 
         <button

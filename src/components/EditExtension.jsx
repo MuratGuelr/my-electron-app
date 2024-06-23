@@ -24,8 +24,10 @@ const EditExtension = ({ openClose, setOpenClose, extensionID }) => {
   );
   const [isActive, setIsActive] = useState("");
   const [isPremium, setIsPremium] = useState("");
+  const [category, setCategory] = useState("");
 
   const extensionDatas = {
+    category,
     title,
     image,
     download,
@@ -55,6 +57,7 @@ const EditExtension = ({ openClose, setOpenClose, extensionID }) => {
           setIsNew(extensionData.isNew);
           setWhichApp(extensionData.whichApp);
           setIsActive(extensionData.isActive);
+          setCategory(extensionData.category);
           setLoading(false);
         } else {
           setLoading(false);
@@ -96,16 +99,16 @@ const EditExtension = ({ openClose, setOpenClose, extensionID }) => {
           }
         >
           <div className="relative p-8 w-full max-w-md">
-            <div className="relative bg-white rounded-lg shadow dark:bg-gray-700">
-              <div className="flex items-center justify-between md:p-5 border-b rounded-t dark:border-gray-600">
-                <div className="dark:bg-gray-900">
+            <div className="relative rounded-lg shadow bg-gray-700">
+              <div className="flex items-center justify-between md:p-5 border-b rounded-t border-gray-600">
+                <div className="g-gray-900">
                   <form
                     className="max-w-sm mx-auto bg-gray-800 p-5 justify-center w-full absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded"
                     onSubmit={handleSubmit}
                   >
                     <button
                       type="button"
-                      className="absolute top-3 end-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
+                      className="absolute top-3 end-2.5 text-gray-400 bg-transparent rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center hover:bg-gray-600 hover:text-white"
                       data-modal-hide="popup-modal"
                       onClick={() => setOpenClose(false)}
                     >
@@ -138,14 +141,14 @@ const EditExtension = ({ openClose, setOpenClose, extensionID }) => {
                       <div className="mb-5">
                         <label
                           htmlFor="Title"
-                          className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                          className="block mb-2 text-sm font-medium text-white"
                         >
                           Title
                         </label>
                         <input
                           type="title"
                           id="type"
-                          className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                          className="border text-sm rounded-lg block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500"
                           placeholder="Type the title..."
                           required
                           value={title}
@@ -156,14 +159,14 @@ const EditExtension = ({ openClose, setOpenClose, extensionID }) => {
                       <div className="mb-5">
                         <label
                           htmlFor="img"
-                          className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                          className="block mb-2 text-sm font-medium text-white"
                         >
                           Image
                         </label>
                         <input
                           type="type"
                           id="img"
-                          className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                          className="border text-sm rounded-lg block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500"
                           placeholder="Type the image url..."
                           required
                           value={image}
@@ -174,14 +177,14 @@ const EditExtension = ({ openClose, setOpenClose, extensionID }) => {
                     <div className="mb-5">
                       <label
                         htmlFor="download"
-                        className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                        className="block mb-2 text-sm font-medium text-white"
                       >
                         Download Url
                       </label>
                       <input
                         type="type"
                         id="download"
-                        className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        className="border text-sm rounded-lg block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500"
                         placeholder="Type the image url..."
                         required
                         value={download}
@@ -193,14 +196,14 @@ const EditExtension = ({ openClose, setOpenClose, extensionID }) => {
                       <div className="mb-5">
                         <label
                           htmlFor="howTo"
-                          className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                          className="block mb-2 text-sm font-medium text-white"
                         >
                           Tutorial
                         </label>
                         <input
                           type="title"
                           id="howTo"
-                          className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                          className="border text-sm rounded-lg block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500"
                           placeholder="Type the Tutorial..."
                           required
                           value={howTo}
@@ -211,14 +214,14 @@ const EditExtension = ({ openClose, setOpenClose, extensionID }) => {
                       <div className="mb-5">
                         <label
                           htmlFor="price"
-                          className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                          className="block mb-2 text-sm font-medium text-white"
                         >
                           Price
                         </label>
                         <input
                           type="number"
                           id="price"
-                          className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg w-40 focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                          className="border text-sm rounded-lg block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500"
                           placeholder="Type the price..."
                           value={price}
                           max={9999}
@@ -231,14 +234,14 @@ const EditExtension = ({ openClose, setOpenClose, extensionID }) => {
                     <div className="mb-5">
                       <label
                         htmlFor="rating"
-                        className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                        className="block mb-2 text-sm font-medium text-white"
                       >
                         Rating
                       </label>
                       <input
                         type="number"
                         id="rating"
-                        className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        className="border text-sm rounded-lg block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500"
                         placeholder="Type the rating..."
                         required
                         value={rating}
@@ -251,13 +254,13 @@ const EditExtension = ({ openClose, setOpenClose, extensionID }) => {
                     <div className="mb-5">
                       <label
                         htmlFor="isNew"
-                        className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                        className="block mb-2 text-sm font-medium text-white"
                       >
                         New or Old?
                       </label>
                       <select
                         id="isNew"
-                        className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        className="border text-sm rounded-lg block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500"
                         value={isNew}
                         required
                         onChange={(e) => setIsNew(e.target.value)}
@@ -271,13 +274,13 @@ const EditExtension = ({ openClose, setOpenClose, extensionID }) => {
                       <div className="mb-5">
                         <label
                           htmlFor="isActive"
-                          className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                          className="block mb-2 text-sm font-medium text-white"
                         >
                           Does it still active?
                         </label>
                         <select
                           id="isActive"
-                          className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                          className="border text-sm rounded-lg block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500"
                           value={isActive}
                           required
                           onChange={(e) => setIsActive(e.target.value)}
@@ -290,7 +293,7 @@ const EditExtension = ({ openClose, setOpenClose, extensionID }) => {
                       <div className="mb-5">
                         <label
                           htmlFor="isPremium"
-                          className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                          className="block mb-2 text-sm font-medium text-white"
                         >
                           Free or Premium?
                         </label>
@@ -298,7 +301,7 @@ const EditExtension = ({ openClose, setOpenClose, extensionID }) => {
                         {price === 0 ? (
                           <select
                             id="isPremium"
-                            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            className="border text-sm rounded-lg block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500"
                             value={false}
                             disabled
                           >
@@ -307,7 +310,7 @@ const EditExtension = ({ openClose, setOpenClose, extensionID }) => {
                         ) : (
                           <select
                             id="isPremium"
-                            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            className="border text-sm rounded-lg block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500"
                             value={true}
                             disabled
                           >
@@ -317,9 +320,57 @@ const EditExtension = ({ openClose, setOpenClose, extensionID }) => {
                       </div>
                     </div>
 
+                    <div>
+                      <div className="px-2 text-sm font-medium text-center border rounded-s-lg focus:ring-4 focus:outline-none bg-gray-700 hover:bg-gray-600 focus:ring-gray-700 text-white border-gray-600">
+                        <label
+                          htmlFor="whichApp"
+                          className="block mb-1 mt-1 text-sm font-medium text-white"
+                        >
+                          Which Category?
+                        </label>
+                        <div className="grid grid-cols-4 gap-5">
+                          <img
+                            src="https://upload.wikimedia.org/wikipedia/commons/d/d9/HandBrake_Icon.png"
+                            className="w-20"
+                          />
+                          <img
+                            src="https://upload.wikimedia.org/wikipedia/tr/5/57/Discord_logo_old.png"
+                            className="w-20"
+                          />
+                          <img
+                            src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Steam_Logo.png"
+                            className="w-20"
+                          />
+                          <img
+                            src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Audacity_Logo.svg/2048px-Audacity_Logo.svg.png"
+                            className="w-20"
+                          />
+                        </div>
+                      </div>
+                      <select
+                        id="category"
+                        className="border text-l rounded-lg block w-full bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500 mb-5 text-center"
+                        value={category}
+                        onChange={(e) => setCategory(e.target.value)}
+                      >
+                        <option value=""></option>
+                        <option value="geliştirici">Geliştirici</option>
+                        <option value="verimlilik">Verimlilik</option>
+                        <option value="antivirüs">Antivirüs</option>
+                        <option value="tarayıcı">Tarayıcı</option>
+                        <option value="iletişim">İletişim</option>
+                        <option value="driver">Driver</option>
+                        <option value="video">Video</option>
+                        <option value="oyun">Oyun</option>
+                        <option value="ofis">Ofis</option>
+                        <option value="edit">Edit</option>
+                        <option value="ses">Ses</option>
+                      </select>
+                    </div>
+
                     <button
                       type="submit"
-                      className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                      className="text-white focus:ring-4 focus:outline-none font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center bg-blue-600 hover:bg-blue-700 focus:ring-blue-800"
                     >
                       Update Extension
                     </button>

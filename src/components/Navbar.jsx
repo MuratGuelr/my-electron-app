@@ -39,7 +39,7 @@ const Navbar = () => {
             <span className="hidden md:block text-white text-2xl font-bold ml-3 ">
               Download Apps{" "}
               {isPro ? (
-                <span class="bg-blue-100 text-blue-800 text-2xl font-semibold me-2 px-1.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 ms-2">
+                <span class="text-2xl font-semibold me-2 px-1.5 py-0.5 rounded bg-blue-200 text-blue-800 ms-2">
                   PRO
                 </span>
               ) : (

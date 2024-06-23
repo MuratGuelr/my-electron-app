@@ -179,16 +179,16 @@ const Profile = () => {
   }, []);
 
   return (
-    <div className="bg-gray-900 h-full w-full">
+    <div>
       {settings ? (
         <>
           {userDetails ? (
             <form
-              className="max-w-sm mx-auto bg-gray-800 p-5 justify-center w-full rounded mt-8"
+              className="bg-gray-900 rounded h-screen"
               onSubmit={handleSubmit}
             >
-              <div className="w-full max-w-sm border rounded-lg shadow bg-gray-800 border-gray-700">
-                <div className="bg-gray-950">
+              <div className="w-1/3 border rounded-lg shadow bg-gray-800 border-gray-700 m-auto absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                <div>
                   <div className="flex text-xl font-semibold tracking-tight text-gray-900bg-gray-800 text-white">
                     <button type="button" onClick={() => setSettings(false)}>
                       <svg
@@ -244,7 +244,7 @@ const Profile = () => {
                           url={userDetails.profilePicture}
                         />
                       )}
-                      <div className="p-3">
+                      <div>
                         <ListImages />
                       </div>
                     </div>
@@ -281,7 +281,7 @@ const Profile = () => {
                         <input
                           type="text"
                           id="fname"
-                          className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"
+                          className="shadow-sm border   text-sm rounded-lg block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500 shadow-sm-light"
                           placeholder=""
                           required
                           value={fname}
@@ -290,7 +290,7 @@ const Profile = () => {
                         <input
                           type="text"
                           id="lname"
-                          className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"
+                          className="shadow-sm border   text-sm rounded-lg block p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500 shadow-sm-light"
                           placeholder=""
                           required
                           value={lname}
@@ -298,38 +298,38 @@ const Profile = () => {
                         />
                       </div>
                     </div>
-                    <span className="text-l text-gray-500 dark:text-gray-400 ml-5">
+                    <span className="text-l text-gray-400 ml-5">
                       {isPremium ? "Premium User" : "Free User"}
                     </span>
                     <div>
-                      <div className="mb-3 mt-5 text-l font-medium text-l text-gray-500 dark:text-gray-400 flex gap-2 justify-center">
+                      <div className="mb-3 mt-5 text-l font-medium text-l text-gray-400 flex gap-2 justify-center">
                         <span className="mt-2">Username :</span>
                         <input
                           type="text"
                           id="username"
-                          className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"
+                          className="shadow-sm border   text-sm rounded-lg block p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500 shadow-sm-light"
                           required
                           value={username}
                           onChange={(e) => setUsername(e.target.value)}
                         />
                       </div>
-                      <h5 className="mb-3 text-l font-medium text-l text-gray-500 dark:text-gray-400 ml-5">
+                      <h5 className="mb-3 text-l font-medium text-l text-gray-400 ml-5">
                         Email :{" "}
                         <span className="text-white">{userDetails.email}</span>
                       </h5>
-                      <div className="mb-3 text-l font-medium text-l text-gray-500 dark:text-gray-400 ml-5">
+                      <div className="mb-3 text-l font-medium text-l text-gray-400 ml-5">
                         Dark Mode :{" "}
                         <span className="text-white">
                           {userDetails.darkMode ? (
                             <button
-                              className="dark:hover:bg-gray-600 p-2 rounded-md"
+                              className="hover:bg-gray-600 p-2 rounded-md"
                               onClick={() => setDarkMode(false)}
                             >
                               <MdOutlineDarkMode />
                             </button>
                           ) : (
                             <button
-                              className="dark:hover:bg-gray-600 p-2 rounded-md"
+                              className="hover:bg-gray-600 p-2 rounded-md"
                               onClick={() => setDarkMode(true)}
                             >
                               <MdDarkMode />
@@ -342,7 +342,7 @@ const Profile = () => {
                     <div className="mt-5 ml-5 flex gap-2">
                       <button
                         type="submit"
-                        className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                        className="text-white focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 bg-blue-600 hover:bg-blue-700 focus:ring-blue-800"
                         onClick={handleLogout}
                       >
                         Logout
@@ -359,109 +359,113 @@ const Profile = () => {
       ) : (
         <>
           {userDetails ? (
-            <div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-              <div className="bg-gray-950">
-                <div className="flex text-xl font-semibold tracking-tight text-gray-900 dark:bg-gray-800 dark:text-white">
-                  <button type="button" onClick={() => setSettings(true)}>
-                    <svg
-                      className="w-6 h-6 ml-4 mt-2 text-gray-800 dark:text-white cursor-pointer"
-                      aria-hidden="true"
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        stroke="currentColor"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        d="m14.304 4.844 2.852 2.852M7 7H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1v-4.5m2.409-9.91a2.017 2.017 0 0 1 0 2.853l-6.844 6.844L8 14l.713-3.565 6.844-6.844a2.015 2.015 0 0 1 2.852 0Z"
-                      />
-                    </svg>
-                  </button>
-                  {userDetails.darkMode ? (
-                    <button className="w-8 h-8 ml-36 mt-2 cursor-default">
-                      <MdOutlineDarkMode />
+            <div className="bg-gray-900 w-screen h-screen">
+              <div className="max-w-sm border rounded-lg shadow bg-gray-800 border-gray-700 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                <div>
+                  <div className="flex text-xl font-semibold tracking-tight bg-gray-800 text-white">
+                    <button type="button" onClick={() => setSettings(true)}>
+                      <svg
+                        className="w-6 h-6 ml-4 mt-2 text-white cursor-pointer"
+                        aria-hidden="true"
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          stroke="currentColor"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="2"
+                          d="m14.304 4.844 2.852 2.852M7 7H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1v-4.5m2.409-9.91a2.017 2.017 0 0 1 0 2.853l-6.844 6.844L8 14l.713-3.565 6.844-6.844a2.015 2.015 0 0 1 2.852 0Z"
+                        />
+                      </svg>
                     </button>
-                  ) : (
-                    <button className="w-8 h-8 ml-36 mt-2 cursor-default">
-                      <MdDarkMode />
-                    </button>
-                  )}
-                  <button
-                    type="button"
-                    className="top-3 end-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white mt-2 mr-3"
-                    data-modal-hide="popup-modal"
-                    onClick={handleLogout}
-                  >
-                    <svg
-                      className="w-3 h-3"
-                      aria-hidden="true"
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 14 14"
-                    >
-                      <path
-                        stroke="currentColor"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"
-                      />
-                    </svg>
-                    <span className="sr-only">Close modal</span>
-                  </button>
-                </div>
-              </div>
-              <div className="flex justify-end px-6 pt-4 pl-2">
-                <div className="flex flex-col items-center pb-10">
-                  <div className="-ml-2">
-                    {userDetails.profilePicture && (
-                      <AvatarProfile
-                        bigClass={true}
-                        url={userDetails.profilePicture}
-                      />
-                    )}
-                  </div>
-                  <h5 className="mb-1 text-xl font-medium text-gray-900 dark:text-white ml-5 mt-5">
-                    {userDetails.firstName + " " + userDetails.lastName}
-                  </h5>
-                  <span className="text-l text-gray-500 dark:text-gray-400 ml-5">
-                    {isPremium ? "Premium User" : "Free User"}
-                  </span>
-
-                  <div>
-                    <h5 className="mb-3 mt-5 text-l font-medium text-l text-gray-500 dark:text-gray-400">
-                      Username :{" "}
-                      <span className="text-white">{userDetails.username}</span>
-                    </h5>
-                    <h5 className="mb-3 text-l font-medium text-l text-gray-500 dark:text-gray-400 ml-5">
-                      Email :{" "}
-                      <span className="text-white">{userDetails.email}</span>
-                    </h5>
-                  </div>
-
-                  <div className="mt-5 ml-5 flex gap-2">
-                    {userDetails.email === "murat@g.com" && (
-                      <>
-                        <button
-                          type="submit"
-                          className="text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5  dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800"
-                          onClick={handleCreate}
-                        >
-                          Create New Extension
-                        </button>
-                      </>
+                    {userDetails.darkMode ? (
+                      <button className="w-8 h-8 ml-36 mt-2 cursor-default">
+                        <MdOutlineDarkMode />
+                      </button>
+                    ) : (
+                      <button className="w-8 h-8 ml-36 mt-2 cursor-default">
+                        <MdDarkMode />
+                      </button>
                     )}
                     <button
-                      type="submit"
-                      className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                      type="button"
+                      className="top-3 end-2.5 text-gray-400 bg-transparent rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center hover:bg-gray-600 hover:text-white mt-2 mr-3"
+                      data-modal-hide="popup-modal"
                       onClick={handleLogout}
                     >
-                      Logout
+                      <svg
+                        className="w-3 h-3"
+                        aria-hidden="true"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 14 14"
+                      >
+                        <path
+                          stroke="currentColor"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="2"
+                          d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"
+                        />
+                      </svg>
+                      <span className="sr-only">Close modal</span>
                     </button>
+                  </div>
+                </div>
+                <div className="flex justify-end px-6 pt-4 pl-2">
+                  <div className="flex flex-col items-center pb-10">
+                    <div className="-ml-2">
+                      {userDetails.profilePicture && (
+                        <AvatarProfile
+                          bigClass={true}
+                          url={userDetails.profilePicture}
+                        />
+                      )}
+                    </div>
+                    <h5 className="mb-1 text-xl font-medium text-white ml-5 mt-5">
+                      {userDetails.firstName + " " + userDetails.lastName}
+                    </h5>
+                    <span className="text-l text-gray-400 ml-5">
+                      {isPremium ? "Premium User" : "Free User"}
+                    </span>
+
+                    <div>
+                      <h5 className="mb-3 mt-5 text-l font-medium text-l text-gray-400">
+                        Username :{" "}
+                        <span className="text-white">
+                          {userDetails.username}
+                        </span>
+                      </h5>
+                      <h5 className="mb-3 text-l font-medium text-l text-gray-400 ml-5">
+                        Email :{" "}
+                        <span className="text-white">{userDetails.email}</span>
+                      </h5>
+                    </div>
+
+                    <div className="mt-5 ml-5 flex gap-2">
+                      {userDetails.email === "murat@g.com" && (
+                        <>
+                          <button
+                            type="submit"
+                            className="text-white  focus:ring-4 focus:outline-none  font-medium rounded-lg text-sm px-5 py-2.5  bg-green-600 hover:bg-green-700 focus:ring-green-800"
+                            onClick={handleCreate}
+                          >
+                            Create New Extension
+                          </button>
+                        </>
+                      )}
+                      <button
+                        type="submit"
+                        className="text-white focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 bg-blue-600 hover:bg-blue-700 focus:ring-blue-800"
+                        onClick={handleLogout}
+                      >
+                        Logout
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>

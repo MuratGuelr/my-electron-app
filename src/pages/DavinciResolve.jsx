@@ -3,8 +3,8 @@ import PageTitles from "../components/PageTitles";
 
 const DavinciResolve = () => {
   return (
-    <div className="bg-gray-950">
-      <div className="mx-auto max-w-screen-2xl lg:py-6">
+    <div className="p-12 h-svh bg-gray-900">
+      <div>
         <PageTitles title={"Davinci Resolve"} />
         <AdobeExtensionCard />
       </div>
