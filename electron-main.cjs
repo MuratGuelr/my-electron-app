@@ -25,7 +25,7 @@ function createWindow() {
 
   mainWindow.loadURL("http://localhost:5173"); // Vite default development server
 
-  mainWindow.setMenu(null);
+  // mainWindow.setMenu(null);
 }
 
 app.on("ready", createWindow);

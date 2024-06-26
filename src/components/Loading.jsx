@@ -2,7 +2,7 @@ import React from "react";
 
 const Loading = () => {
   return (
-    <div className="bg-gray-950 h-svh w-auto">
+    <div className="h-svh w-auto">
       <div
         className="max-w-sm mx-auto justify-center absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded"
         role="status"

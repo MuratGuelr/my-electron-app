@@ -4,6 +4,7 @@ import AvatarProfile from "./AvatarProfile";
 import { auth, db } from "../firebase/firebase";
 import { getDoc, doc } from "firebase/firestore";
 import { FaPlusCircle } from "react-icons/fa";
+import { MdFavorite } from "react-icons/md";
 
 const Navbar = () => {
   const [userDetails, setUserDetails] = useState(null);
@@ -56,6 +57,9 @@ const Navbar = () => {
                   </NavLink>
                   <NavLink to="free-extensions" className={isLinkActive}>
                     Free Apps
+                  </NavLink>
+                  <NavLink to="favorites" className={isLinkActive}>
+                    <MdFavorite size={22} />
                   </NavLink>
                 </>
               )}

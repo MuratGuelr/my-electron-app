@@ -1,15 +1,16 @@
-import { useLocation } from "react-router-dom";
-import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import SearchBox from "./SearchBox";
-import { toast } from "react-toastify";
 import { doc, collection, getDoc, deleteDoc } from "firebase/firestore";
-import { auth, db } from "../firebase/firebase";
-import Loading from "./Loading";
-import EditExtension from "./EditExtension";
-import { onSnapshot } from "firebase/firestore";
+import React, { useEffect, useState } from "react";
 import { MdDeleteOutline } from "react-icons/md";
+import { auth, db } from "../firebase/firebase";
+import { onSnapshot } from "firebase/firestore";
+import { useLocation } from "react-router-dom";
+import EditExtension from "./EditExtension";
+import FavoriteApps from "./FavoriteApps";
+import { Link } from "react-router-dom";
 import { FaEdit } from "react-icons/fa";
+import { toast } from "react-toastify";
+import SearchBox from "./SearchBox";
+import Loading from "./Loading";
 
 const categories = [
   {
@@ -59,13 +60,13 @@ const categories = [
 ];
 
 const AdobeExtensionCard = () => {
+  const [selectedCategory, setSelectedCategory] = useState("");
   const [userDetails, setUserDetails] = useState(null);
   const [extensionID, setExtensionID] = useState("");
   const [openClose, setOpenClose] = useState(false);
   const [inputValue, setInputValue] = useState("");
   const [extensions, setExtensions] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [selectedCategory, setSelectedCategory] = useState("");
 
   const location = useLocation();
   const pathname = location.pathname;
@@ -216,6 +217,7 @@ const AdobeExtensionCard = () => {
                           className="text-white hover:text-gray-300"
                         />
                       </button>
+
                       <button
                         type="button"
                         className="text-gray-400 bg-transparent rounded-lg text-sm w-8 h-8 hover:bg-gray-600 hover:text-white"
@@ -228,6 +230,8 @@ const AdobeExtensionCard = () => {
                       </button>
                     </div>
                   )}
+                  <FavoriteApps appId={extension.id} extension={extension} />
+
                   <div className="flex items-center justify-between mb-4">
                     {extension.isNew === "new" && (
                       <span className="text-xs font-medium px-2.5 py-0.5 rounded-full bg-green-900 text-green-300 absolute mt-5">

@@ -17,6 +17,7 @@ import Signup from "./pages/Signup";
 import Profile from "./pages/Profile";
 import CreateExtension from "./components/CreateExtension";
 import WindowsApps from "./pages/WindowsApps";
+import Favorites from "./pages/Favorites";
 
 function App() {
   const router = createBrowserRouter(
@@ -33,6 +34,7 @@ function App() {
         <Route path="/windows-x64bit" element={<WindowsApps />} />
         <Route path="/create-extension" element={<CreateExtension />} />
         <Route path="/profile" element={<Profile />} />
+        <Route path="/favorites" element={<Favorites />} />
         <Route path="*" element={<NotFound />} />
       </Route>
     )
