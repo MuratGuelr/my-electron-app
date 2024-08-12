@@ -5,28 +5,28 @@ const Apps = [
   {
     id: 1,
     name: "Adobe Premiere Pro",
-    img: "../img/adobe-premiere/premiere-logo/premiere.png",
+    img: "./src/assets/adobe-premiere/premiere-logo/premiere.png",
     desc: "Adobe Premiere Pro, film, TV ve web için videoları düzenlemek için kullanılan güçlü bir profesyonel video düzenleme yazılımıdır.",
     to: "/premiere-pro",
   },
   {
     id: 2,
     name: "Adobe After Effects",
-    img: "../img/after-effects/after-logo/after.png",
+    img: "./src/assets/after-effects/after-logo/after.png",
     desc: "After Effects: Hareketli Grafikler ve Görsel Efektler Sihirbazı. After Effects, film, TV ve web için göz alıcı animasyonlar, görsel efektler ve hareketli grafikler oluşturmak için kullanılan bir yazılımdır",
     to: "/after-effects",
   },
   {
     id: 3,
     name: "Davinci Resolve",
-    img: "../img/davinci-resolve/davinci-logo/davinci.png",
+    img: "./src/assets/davinci-resolve/davinci-logo/davinci.png",
     desc: "DaVinci Resolve, video düzenleme, renk düzeltme, görsel efektler, hareketli grafikler ve ses post prodüksiyonu gibi post prodüksiyon sürecinin tüm aşamalarını tek bir programda birleştiren güçlü bir yazılımdır.",
     to: "/davinci-resolve",
   },
   {
     id: 4,
     name: "Windows Uygulamaları",
-    img: "../img/windows/windows-logo/windows.png",
+    img: "./src/assets/windows/windows-logo/windows.png",
     desc: "Ücretsiz indirebileceğiniz windows uygulamaları.",
     to: "/windows-x64bit",
   },
@@ -47,7 +47,6 @@ const FreeExtensions = () => {
           Effects or Davinci Resolve. Enjoy...
         </p>
       </div>
-
       <div>
         <div className="m-8 p-3 flex flex-row gap-5 justify-center">
           <Card Apps={Apps} />

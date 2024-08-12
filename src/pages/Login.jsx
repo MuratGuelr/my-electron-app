@@ -23,7 +23,7 @@ const Login = () => {
   };
 
   return (
-    <div className="bg-gray-900 h-svh">
+    <div className="bg-gray-900 min-h-screen">
       <form
         className="max-w-sm mx-auto bg-gray-800 p-5 justify-center w-full absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded"
         onSubmit={handleSubmit}

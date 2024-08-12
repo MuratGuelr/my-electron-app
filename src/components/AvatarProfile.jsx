@@ -3,7 +3,7 @@ import { auth, db } from "../firebase/firebase";
 import { doc, onSnapshot } from "firebase/firestore";
 
 const AvatarProfile = ({ bigClass }) => {
-  const defaultImage = "/default-avatar.svg";
+  const defaultImage = "./src/assets/defaultAvatar.webp";
   const [userDetails, setUserDetails] = useState("");
 
   useEffect(() => {

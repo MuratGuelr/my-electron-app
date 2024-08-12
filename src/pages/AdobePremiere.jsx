@@ -77,7 +77,7 @@ const AdobePremiere = () => {
   ];
 
   return (
-    <div className="p-12 h-svh bg-gray-900">
+    <div className="p-12 min-h-screen bg-gray-900">
       <div>
         <PageTitles title={"Adobe Premiere Pro"} />
         <AdobeExtensionCard PremiereExtensions={PremiereExtensions} />

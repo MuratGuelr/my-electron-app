@@ -159,7 +159,7 @@ const AdobeExtensionCard = () => {
           {pathname === "/windows-x64bit" && (
             <>
               <div className="flex">
-                <div className="flex m-auto gap-5 p-1 mb-5">
+                <div className="flex m-auto gap-5">
                   {categories.map((cat) => (
                     <button
                       key={cat.name}
@@ -181,14 +181,15 @@ const AdobeExtensionCard = () => {
                   </button>
                 </div>
               </div>
+              <hr className="w-1/2 h-1 mx-auto bg-gradient-to-r to-sky-600 from-sky-800 border-0 rounded md:my-3 dark:bg-gray-700" />
             </>
           )}
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-8">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-5 mt-5">
             {filterArray.map((extension) => (
               <div
                 key={extension.id}
-                className="rounded transition-all text-center"
+                className="flex justify-between rounded transition-all text-center hover:scale-105 shadow-xl"
               >
                 <EditExtension
                   extension={extension}
@@ -220,37 +221,32 @@ const AdobeExtensionCard = () => {
 
                       <button
                         type="button"
-                        className="text-gray-400 bg-transparent rounded-lg text-sm w-8 h-8 hover:bg-gray-600 hover:text-white"
+                        className="text-gray-400 bg-transparent rounded-lg text-sm hover:bg-gray-600 hover:text-white"
                         onClick={() => handleDelete(extension.id)}
                       >
-                        <MdDeleteOutline
-                          size={26}
-                          className="text-white ml-1"
-                        />
+                        <MdDeleteOutline size={26} className="text-white" />
                       </button>
                     </div>
                   )}
                   <FavoriteApps appId={extension.id} extension={extension} />
 
-                  <div className="flex items-center justify-between mb-4">
+                  <div className="flex items-center justify-between">
                     {extension.isNew === "new" && (
-                      <span className="text-xs font-medium px-2.5 py-0.5 rounded-full bg-green-900 text-green-300 absolute mt-5">
+                      <span className="text-xs font-medium px-2.5 py-0.5 rounded-full bg-green-900 text-green-300 absolute">
                         New
                       </span>
                     )}
                   </div>
-                  <div className="-mt-7">
+                  <div>
                     <div className="flex justify-center">
                       <img
-                        className="rounded w-36"
+                        className="rounded w-auto"
                         src={extension.image}
                         alt="Extension"
                       />
                     </div>
                   </div>
-                  <h5 className="text-2xl font-semibold tracking-tight text-white mb-1">
-                    {extension.title}
-                  </h5>
+                  <h5 className="font-bold text-white">{extension.title}</h5>
 
                   <div className="flex justify-center scale-75">
                     <img
@@ -263,7 +259,7 @@ const AdobeExtensionCard = () => {
                     </div>
                   </div>
 
-                  <div className="flex items-center justify-between">
+                  <div className="flex justify-between">
                     {extension.isActive === "active" ? (
                       <Link
                         to={extension.howTo}

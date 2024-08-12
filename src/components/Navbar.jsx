@@ -5,6 +5,7 @@ import { auth, db } from "../firebase/firebase";
 import { getDoc, doc } from "firebase/firestore";
 import { FaPlusCircle } from "react-icons/fa";
 import { MdFavorite } from "react-icons/md";
+import appIcon from "../assets/app.ico";
 
 const Navbar = () => {
   const [userDetails, setUserDetails] = useState(null);
@@ -36,7 +37,7 @@ const Navbar = () => {
       <div className="mx-auto max-w-7x1 px-2 sm:px-6 lg:px8">
         <div className="flex h-20 items-center justify-between">
           <NavLink className="flex flex-shrink-0 items-center" to="/">
-            <img src="/app.png" className="h-10 w-auto" alt="logo" />
+            <img src={appIcon} className="h-10 w-auto" alt="logo" />
             <span className="hidden md:block text-white text-2xl font-bold ml-3 ">
               Download Apps{" "}
               {isPro ? (

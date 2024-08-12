@@ -1,34 +1,32 @@
-const { app, BrowserWindow } = require("electron");
 const path = require("path");
+const { app, BrowserWindow } = require("electron");
 
 function createWindow() {
-  const mainWindow = new BrowserWindow({
+  const win = new BrowserWindow({
     width: 1280,
     height: 1000,
     minWidth: 1080,
     minHeight: 1080,
-    icon: path.join(__dirname, "assets", "app.ico"),
     webPreferences: {
-      preload: path.join(__dirname, "preload.js"),
       nodeIntegration: true,
       contextIsolation: false,
+      preload: path.join(__dirname, "preload.js"),
     },
-    build: {
-      directories: {
-        output: "build",
-      },
-      win: {
-        icon: path.join(__dirname, "assets", "app.ico"),
-      },
-    },
+    icon: path.join(__dirname, "src", "assets", "app.ico"),
   });
 
-  mainWindow.loadURL("http://localhost:5173"); // Vite default development server
+  win.webContents.on("did-finish-load", () => {
+    win.webContents.send("navigate", "/login");
+  });
 
-  // mainWindow.setMenu(null);
+  if (app.isPackaged) {
+    win.loadFile(path.join(__dirname, "dist", "index.html"));
+  } else {
+    win.loadURL("http://localhost:5173");
+  }
 }
 
-app.on("ready", createWindow);
+app.whenReady().then(createWindow);
 
 app.on("window-all-closed", () => {
   if (process.platform !== "darwin") {

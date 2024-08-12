@@ -14,6 +14,7 @@ const FavoriteApps = ({ appId, extension }) => {
   const [favorite, setFavorite] = useState(false);
   const [userDetails, setUserDetails] = useState(null);
   const [favoriteApp, setFavoriteApp] = useState([]);
+  const [userID, setUserID] = useState(null);
 
   useEffect(() => {
     const fetchUserData = async () => {
@@ -25,7 +26,10 @@ const FavoriteApps = ({ appId, extension }) => {
             const userData = docSnap.data();
             setUserDetails(userData);
             setFavoriteApp(userData.favorites);
-            setFavorite(userData.favorites?.includes(appId) || false);
+            setFavorite(
+              userData.favorites?.some((app) => app.id === appId) || false
+            );
+            setUserID(userData.uid);
           } else {
             toast.error("User data not found");
           }
@@ -44,9 +48,9 @@ const FavoriteApps = ({ appId, extension }) => {
         await updateDoc(
           userDocRef,
           {
-            favorites: arrayRemove(extension),
+            favorites: arrayRemove(favoriteApp.find((app) => app.id === appId)),
           },
-          toast.error("Uygulama favorilerinizden çıkartıldı!")
+          toast.warning("Uygulama favorilerinizden çıkartıldı!")
         );
       } else {
         await updateDoc(
@@ -59,34 +63,25 @@ const FavoriteApps = ({ appId, extension }) => {
       }
 
       setFavorite(!favorite);
+      const updatedDocSnap = await getDoc(userDocRef);
+      if (updatedDocSnap.exists()) {
+        setFavoriteApp(updatedDocSnap.data().favorites);
+      }
     } else {
       toast.error("User not logged in or user data not found");
     }
   };
 
   return (
-    <div className="absolute left-1/2 -mt-8">
-      <button onClick={handleFavoriteToggle} className="text-white">
+    <div className="-mt-8 mb-3">
+      <button
+        onClick={handleFavoriteToggle}
+        className="text-white transition-all"
+      >
         {favorite ? (
-          <>
-            {favoriteApp.map((e) => {
-              {
-                e.title === extension.title ? (
-                  <button>
-                    <MdFavorite size={24} />
-                  </button>
-                ) : (
-                  <button>
-                    <MdFavorite size={24} />
-                  </button>
-                );
-              }
-            })}
-          </>
+          <MdFavorite className="text-red-600 shadow-white" size={34} />
         ) : (
-          <button>
-            <MdFavoriteBorder size={24} />
-          </button>
+          <MdFavoriteBorder size={34} />
         )}
       </button>
     </div>

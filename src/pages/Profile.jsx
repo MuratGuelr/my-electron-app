@@ -179,15 +179,12 @@ const Profile = () => {
   }, []);
 
   return (
-    <div>
+    <div className="bg-gray-900 rounded min-h-screen">
       {settings ? (
         <>
           {userDetails ? (
-            <form
-              className="bg-gray-900 rounded h-screen"
-              onSubmit={handleSubmit}
-            >
-              <div className="w-1/3 border rounded-lg shadow bg-gray-800 border-gray-700 m-auto absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+            <form onSubmit={handleSubmit}>
+              <div className="w-1/3 border rounded-lg shadow bg-gray-800 border-gray-700 m-auto scale-90">
                 <div>
                   <div className="flex text-xl font-semibold tracking-tight text-gray-900bg-gray-800 text-white">
                     <button type="button" onClick={() => setSettings(false)}>

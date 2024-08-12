@@ -1,13 +1,13 @@
 {
-  "name": "my-electron-app",
+  "name": "download-app",
   "productName": "Download App",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0",
   "type": "module",
   "main": "electron-main.cjs",
   "scripts": {
     "dev": "concurrently \"vite\" \"npm:electron\"",
-    "build": "vite build",
+    "build": "vite build && electron-builder",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "electron": "wait-on tcp:5173 && electron ."
@@ -28,6 +28,7 @@
     "autoprefixer": "^10.4.19",
     "concurrently": "^8.0.1",
     "electron": "^31.0.1",
+    "electron-builder": "^24.13.3",
     "eslint": "^8.57.0",
     "eslint-plugin-react": "^7.34.1",
     "eslint-plugin-react-hooks": "^4.6.0",
@@ -36,5 +37,27 @@
     "tailwindcss": "^3.4.4",
     "vite": "^5.2.0",
     "wait-on": "^7.0.1"
+  },
+  "build": {
+    "appId": "download-apps",
+    "productName": "Download App",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "dist/**/*",
+      "electron-main.cjs",
+      "preload.js"
+    ],
+    "extraResources": [
+      {
+        "from": "src/assets",
+        "to": "assets"
+      }
+    ],
+    "win": {
+      "target": "nsis",
+      "icon": "src/assets/app.ico"
+    }
   }
 }
