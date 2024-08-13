@@ -12,8 +12,7 @@ import { getAuth } from "firebase/auth";
 import { toast } from "react-toastify";
 import { TiDelete } from "react-icons/ti";
 
-const ListImages = () => {
-  const [images, setImages] = useState([]);
+const ListImages = ({ images, setImages }) => {
   const [userDetails, setUserDetails] = useState(null);
   const [userUid, setUserUid] = useState("");
 
@@ -94,16 +93,16 @@ const ListImages = () => {
     <>
       {userDetails ? (
         <>
-          <div className="grid grid-cols-3 gap-3 p-3 ml-5">
+          <div className="grid grid-cols-3 gap-3 p-2">
             {images.map((url, index) => (
               <div key={index}>
                 <TiDelete
-                  size={22}
-                  className="cursor-pointer hover:text-red-500 transition-all absolute"
+                  size={24}
+                  className="cursor-pointer text-gray-950 shadow-2xl hover:text-red-600 transition-all absolute"
                   onClick={() => handleDelete(url)}
                 />
                 <img
-                  className="cursor-pointer hover:ring h-20 object-cover rounded"
+                  className="cursor-pointer hover:ring hover:shadow-2xl h-16 object-cover rounded"
                   src={url}
                   alt={`User ${index + 1} image`}
                   onClick={() => handleClick(url)}
