@@ -36,12 +36,12 @@ const Favorites = () => {
   }, []);
 
   return (
-    <div className="p-10 bg-gray-900 antialiased justify-center text-white min-h-screen">
+    <div className="p-12 bg-gray-900 antialiased justify-center text-white min-h-screen">
       <div>
         {favoriteApps && favoriteApps.length > 0 ? (
           <>
-            <div className="mb-10 mt-5 m-5 text-center">
-              <h1 className="mb-4 text-3xl font-extrabold text-white md:text-5xl lg:text-6xl">
+            <div className="mb-10 text-center">
+              <h1 className="text-3xl font-extrabold text-white md:text-5xl lg:text-6xl">
                 Your{" "}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r to-sky-600 from-sky-300">
                   Favorites
@@ -67,7 +67,7 @@ const Favorites = () => {
             />
           </>
         ) : (
-          <div className="mb-10 mt-5 m-5 text-center">
+          <div className="mb-10 m-5 text-center">
             <h1 className="mb-4 text-2xl font-extrabold text-white md:text-3xl lg:text-5xl">
               There are no{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r to-sky-600 from-sky-300">

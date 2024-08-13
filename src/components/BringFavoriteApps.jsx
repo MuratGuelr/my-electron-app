@@ -30,7 +30,7 @@ const BringFavoriteApps = ({ favoriteApps, AppType }) => {
     <>
       {filteredApps.length > 0 ? (
         <div className="mt-10 mb-5">
-          <div className="flex justify-center gap-2">
+          <div className="flex justify-center gap-3">
             <h1 className="text-transparent bg-clip-text bg-gradient-to-r to-sky-600 from-sky-300 text-2xl font-bold md:text-3xl lg:text-4xl">
               Favorite
             </h1>
@@ -46,38 +46,36 @@ const BringFavoriteApps = ({ favoriteApps, AppType }) => {
       )}
 
       {filteredApps.length > 0 ? (
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5">
+        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 p-5">
           {filteredApps.map((extension) => (
             <div
               key={extension.id}
-              className="rounded-lg transition-all text-center bg-gray-800 shadow-lg hover:shadow-xl transform hover:scale-105"
+              className="flex justify-between rounded transition-all text-center shadow-xl bg-gray-800 hover:bg-gray-700 p-4 overflow-hidden"
             >
               <div
-                className={`relative p-5 rounded-lg border border-gray-700 transition-all ${
+                className={`relative transition-all ${
                   extension.isActive !== "active"
                     ? "filter grayscale cursor-not-allowed"
                     : ""
                 }`}
               >
-                <div className="flex items-center justify-between mb-4">
+                <div className="flex items-center justify-between">
                   {extension.isNew === "new" && (
-                    <span className="text-xs font-medium px-2.5 py-0.5 rounded-full bg-green-900 text-green-300 absolute mt-5">
+                    <span className="text-xs font-medium px-4 py-0.5 rounded bg-green-900 text-green-300 absolute -mt-3 -ml-5">
                       New
                     </span>
                   )}
                 </div>
-                <div className="-mt-7">
+                <div>
                   <div className="flex justify-center">
                     <img
-                      className="rounded-lg w-36"
+                      className="rounded w-auto"
                       src={extension.image}
                       alt="Extension"
                     />
                   </div>
                 </div>
-                <h5 className="text-2xl font-semibold tracking-tight text-white mb-1">
-                  {extension.title}
-                </h5>
+                <h5 className="font-bold text-white">{extension.title}</h5>
 
                 <div className="flex justify-center scale-75">
                   <img

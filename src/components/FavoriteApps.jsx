@@ -73,15 +73,24 @@ const FavoriteApps = ({ appId, extension }) => {
   };
 
   return (
-    <div className="-mt-8 mb-3">
-      <button
-        onClick={handleFavoriteToggle}
-        className="text-white transition-all"
-      >
+    <div className="-mt-2">
+      <button onClick={handleFavoriteToggle} className="m-auto">
         {favorite ? (
-          <MdFavorite className="text-red-600 shadow-white" size={34} />
+          <>
+            <MdFavorite className="text-red-600 shadow-white" size={34} />
+            <MdFavorite
+              className="text-red-600 shadow-white animate-ping absolute -mt-8 blur-xl opacity-50"
+              size={34}
+            />
+          </>
         ) : (
-          <MdFavoriteBorder size={34} />
+          <>
+            <MdFavoriteBorder size={34} className="text-gray-500" />
+            <MdFavoriteBorder
+              size={34}
+              className="text-red-600 shadow-white animate-ping absolute -mt-8 blur-xl opacity-50"
+            />
+          </>
         )}
       </button>
     </div>
