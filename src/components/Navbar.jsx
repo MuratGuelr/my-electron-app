@@ -82,7 +82,7 @@ const Navbar = () => {
                 </>
               )}
               {userDetails && (
-                <NavLink to="/profile">
+                <NavLink to="/profile" className="ml-5">
                   <AvatarProfile />
                 </NavLink>
               )}

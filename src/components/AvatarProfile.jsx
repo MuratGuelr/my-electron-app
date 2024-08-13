@@ -32,8 +32,8 @@ const AvatarProfile = ({ bigClass }) => {
         data-dropdown-placement="bottom-start"
         className={
           bigClass
-            ? "w-38 h-38 rounded ml-3 border-2 border-blue-900 bg-white"
-            : "w-12 h-12 rounded-full cursor-pointer ml-3 border-2 border-blue-900 bg-white hover:border-white transition-all object-cover scale-125"
+            ? "w-38 h-38 rounded border-2 border-blue-900 bg-white"
+            : "w-12 h-12 rounded-full cursor-pointer border-2 border-blue-900 bg-white hover:border-white transition-all object-cover scale-125"
         }
         src={
           !userDetails.profilePicture

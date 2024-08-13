@@ -34,6 +34,7 @@ const Profile = () => {
   const [file, setFile] = useState(null);
   const [downloadURL, setDownloadURL] = useState("");
   const [imageUrls, setImageUrls] = useState("");
+  const [images, setImages] = useState([]);
 
   const userProfile = {
     firstName: fname,
@@ -87,7 +88,6 @@ const Profile = () => {
       try {
         const userData = doc(db, "Users", user.uid);
         await updateDoc(userData, userProfile);
-        toast.success("Profile updated successfully!");
         setSettings(false);
       } catch (error) {
         toast.error(error.message);
@@ -137,18 +137,19 @@ const Profile = () => {
       const auth = getAuth();
       const user = auth.currentUser;
       if (user) {
-        const storage = getStorage();
-        const db = getFirestore();
-        const docRef = doc(db, "Users", user.uid);
-        const storageRef = ref(storage, `${user.uid}/${file.name}`);
-        await uploadBytes(storageRef, file);
-        const url = await getDownloadURL(storageRef);
-        setDownloadURL(url);
-
-        await setDoc(docRef, { profilePicture: url }, { merge: true });
-        toast.success("Profile picture uploaded successfully!");
-      } else {
-        toast.error("Please login first!");
+        if (images.length < 3) {
+          const storage = getStorage();
+          const db = getFirestore();
+          const docRef = doc(db, "Users", user.uid);
+          const storageRef = ref(storage, `${user.uid}/${file.name}`);
+          await uploadBytes(storageRef, file);
+          const url = await getDownloadURL(storageRef);
+          setDownloadURL(url);
+          await setDoc(docRef, { profilePicture: url }, { merge: true });
+          toast.success("Profile picture uploaded successfully!");
+        } else {
+          toast.error("You can't have more then '3' Images!");
+        }
       }
     } else {
       toast.error("No file selected!");
@@ -184,9 +185,9 @@ const Profile = () => {
         <>
           {userDetails ? (
             <form onSubmit={handleSubmit}>
-              <div className="w-1/3 border rounded-lg shadow bg-gray-800 border-gray-700 m-auto scale-90">
+              <div className="w-1/4 border rounded-lg shadow bg-gray-800 border-gray-700 m-auto scale-90">
                 <div>
-                  <div className="flex text-xl font-semibold tracking-tight text-gray-900bg-gray-800 text-white">
+                  <div className="flex text-xl font-semibold tracking-tight text-gray-900bg-gray-800 text-white p-2">
                     <button type="button" onClick={() => setSettings(false)}>
                       <svg
                         className="w-6 h-6 ml-4 mt-2 text-white cursor-pointer"
@@ -208,7 +209,7 @@ const Profile = () => {
                     </button>
                     <button
                       type="button"
-                      className="top-3 end-2.5 text-gray-400 bg-transparent   rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center hover:bg-gray-600 hover:text-white mt-2 mr-3"
+                      className="top-3 text-gray-400 bg-transparent rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center hover:bg-gray-600 hover:text-white"
                       data-modal-hide="popup-modal"
                       onClick={handleSubmit}
                     >
@@ -232,9 +233,9 @@ const Profile = () => {
                     </button>
                   </div>
                 </div>
-                <div className="flex justify-end px-4 pt-2">
+                <div className="flex px-4">
                   <div className="flex flex-col items-center pb-10">
-                    <div className="-ml-5">
+                    <div>
                       {userDetails.profilePicture && (
                         <AvatarProfile
                           bigClass={true}
@@ -242,7 +243,7 @@ const Profile = () => {
                         />
                       )}
                       <div>
-                        <ListImages />
+                        <ListImages images={images} setImages={setImages} />
                       </div>
                     </div>
                     <div className="mt-4 inline-flex gap-2">
@@ -413,15 +414,16 @@ const Profile = () => {
                     </button>
                   </div>
                 </div>
-                <div className="flex justify-end px-6 pt-4 pl-2">
+                <div className="flex justify-end px-6 pt-4">
                   <div className="flex flex-col items-center pb-10">
-                    <div className="-ml-2">
+                    <div>
                       {userDetails.profilePicture && (
                         <AvatarProfile
                           bigClass={true}
                           url={userDetails.profilePicture}
                         />
                       )}
+                      <ListImages images={images} setImages={setImages} />
                     </div>
                     <h5 className="mb-1 text-xl font-medium text-white ml-5 mt-5">
                       {userDetails.firstName + " " + userDetails.lastName}
