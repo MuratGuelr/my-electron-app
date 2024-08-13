@@ -181,15 +181,15 @@ const AdobeExtensionCard = () => {
                   </button>
                 </div>
               </div>
-              <hr className="w-1/2 h-1 mx-auto bg-gradient-to-r to-sky-600 from-sky-800 border-0 rounded md:my-3 dark:bg-gray-700" />
+              <hr className="w-1/2 h-1 mx-auto bg-gradient-to-r to-sky-600 from-sky-800 border-0 rounded md:my-4 dark:bg-gray-700" />
             </>
           )}
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-5 mt-5">
+          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 p-5">
             {filterArray.map((extension) => (
               <div
                 key={extension.id}
-                className="flex justify-between rounded transition-all text-center hover:scale-105 shadow-xl"
+                className="flex justify-between rounded transition-all text-center shadow-xl bg-gray-800 hover:bg-gray-700 p-4 overflow-hidden"
               >
                 <EditExtension
                   extension={extension}
@@ -198,7 +198,7 @@ const AdobeExtensionCard = () => {
                   extensionID={extensionID}
                 />
                 <div
-                  className={`relative p-5 rounded-lg shadow bg-gray-800 border-gray-700 transition-all ${
+                  className={`relative transition-all ${
                     extension.isActive !== "active"
                       ? "filter grayscale cursor-not-allowed"
                       : ""
