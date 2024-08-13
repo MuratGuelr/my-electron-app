@@ -94,14 +94,14 @@ const EditExtension = ({ openClose, setOpenClose, extensionID }) => {
           aria-hidden="true"
           className={
             openClose
-              ? "justify-center items-center  overflow-x-hidden w-full md:inset-0 fixed inset-0 z-50 overflow-y-auto bg-black bg-opacity-40 flex"
-              : "hidden justify-center items-center  overflow-x-hidden w-full md:inset-0 fixed inset-0 z-50 overflow-y-auto bg-black bg-opacity-40"
+              ? "justify-center items-center overflow-x-hidden w-full md:inset-0 fixed inset-0 z-50 overflow-y-auto bg-black bg-opacity-5 flex"
+              : "hidden justify-center items-center overflow-x-hidden w-full md:inset-0 fixed inset-0 z-50 overflow-y-auto bg-black bg-opacity-5"
           }
         >
           <div className="relative p-8 w-full max-w-md scale-90">
             <div className="relative rounded-lg shadow bg-gray-700">
               <div className="flex items-center justify-between md:p-5 border-b rounded-t border-gray-600">
-                <div className="g-gray-900">
+                <div className="flex items-center bg-gray-900">
                   <form
                     className="max-w-sm mx-auto bg-gray-800 p-5 justify-center w-full absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded"
                     onSubmit={handleSubmit}

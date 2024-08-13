@@ -4,21 +4,25 @@
 
 .custom-toast .Toastify__toast {
   font-weight: 600;
-  box-shadow: 2px 2px 1px 1px hsl(0, 0%, 100%);
+  box-shadow: 2px 1px 1px hsla(0, 0%, 80%, 0.433);
   font-weight: 550;
 }
 
 .custom-toast .Toastify__toast--success {
-  background-color: #0d932d;
+  background-color: hsla(134, 100%, 25%, 0.6);
   color: #ffffff;
 }
 
 .custom-toast .Toastify__toast--error {
-  background-color: #b7202f;
+  background-color: hsla(354, 99%, 31%, 0.6);
   color: #ffffff;
 }
 
 .custom-toast .Toastify__toast--warning {
-  background-color: #c89e23;
+  background-color: hsla(45, 100%, 32%, 0.6);
   color: #fff;
+}
+
+::-webkit-scrollbar {
+  display: none;
 }
