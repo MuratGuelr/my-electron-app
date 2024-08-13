@@ -15,10 +15,12 @@ const MainLayout = () => {
         limit={3}
         pauseOnHover={true}
         newestOnTop={true}
-        closeOnClick={false}
+        closeOnClick
         closeButton={false}
         hideProgressBar={true}
+        theme="light"
         className="custom-toast"
+        draggable={true}
       />
     </>
   );
