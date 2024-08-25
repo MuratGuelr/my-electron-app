@@ -17,6 +17,7 @@ const CreateExtension = () => {
   const [isActive, setIsActive] = useState("active");
   const [isPremium, setIsPremium] = useState("");
   const [category, setCategory] = useState("");
+  const [description, setDescription] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -32,18 +33,29 @@ const CreateExtension = () => {
       isNew,
       whichApp,
       isActive,
+      description,
     };
 
     let collectionName = "";
-    if (whichApp === "./src/assets/adobe-premiere/premiere-logo/premiere.png") {
+    if (
+      whichApp ===
+      "https://firebasestorage.googleapis.com/v0/b/download-ap.appspot.com/o/windows-x64bit%2FAppLogos%2Fpremiere.png?alt=media&token=6291c7a0-5916-4497-9eff-9a7ff7b581f3"
+    ) {
       collectionName = "premiere-pro";
-    } else if (whichApp === "./src/assets/after-effects/after-logo/after.png") {
+    } else if (
+      whichApp ===
+      "https://firebasestorage.googleapis.com/v0/b/download-ap.appspot.com/o/windows-x64bit%2FAppLogos%2Fafter.png?alt=media&token=e6066871-2926-4b05-95bf-ba7fc460f120"
+    ) {
       collectionName = "after-effects";
     } else if (
-      whichApp === "./src/assets/davinci-resolve/davinci-logo/davinci.png"
+      whichApp ===
+      "https://firebasestorage.googleapis.com/v0/b/download-ap.appspot.com/o/windows-x64bit%2FAppLogos%2Fdavinci.png?alt=media&token=05d16445-d52a-4136-ab67-df4b6b1ffb1f"
     ) {
       collectionName = "davinci-resolve";
-    } else if (whichApp === "./src/assets/windows/windows-logo/windows.png") {
+    } else if (
+      whichApp ===
+      "https://firebasestorage.googleapis.com/v0/b/download-ap.appspot.com/o/windows-x64bit%2FAppLogos%2Fwindows.png?alt=media&token=a624fd66-f515-446b-83c2-1db99737f3c0"
+    ) {
       collectionName = "windows-x64bit";
     }
 
@@ -66,9 +78,12 @@ const CreateExtension = () => {
     setPrice(0);
     setRating("");
     setIsNew("new");
-    setWhichApp("./src/assets/adobe-premiere/premiere-logo/premiere.png");
+    setWhichApp(
+      "https://firebasestorage.googleapis.com/v0/b/download-ap.appspot.com/o/windows-x64bit%2FAppLogos%2Fpremiere.png?alt=media&token=6291c7a0-5916-4497-9eff-9a7ff7b581f3"
+    );
     setIsActive("active");
     setIsPremium("");
+    setDescription("");
   };
 
   return (
@@ -210,39 +225,39 @@ const CreateExtension = () => {
               <div className="py-2.5 px-2 text-sm font-medium text-center border rounded-s-lg focus:ring-4 focus:outline-none bg-gray-700 hover:bg-gray-600 focus:ring-gray-700 text-white border-gray-600">
                 <div className="grid grid-cols-4 gap-5">
                   <img
-                    src="./src/assets/adobe-premiere/premiere-logo/premiere.png"
+                    src="https://firebasestorage.googleapis.com/v0/b/download-ap.appspot.com/o/windows-x64bit%2FAppLogos%2Fpremiere.png?alt=media&token=6291c7a0-5916-4497-9eff-9a7ff7b581f3"
                     className="w-20"
                   />
                   <img
-                    src="./src/assets/after-effects/after-logo/after.png"
+                    src="https://firebasestorage.googleapis.com/v0/b/download-ap.appspot.com/o/windows-x64bit%2FAppLogos%2Fafter.png?alt=media&token=e6066871-2926-4b05-95bf-ba7fc460f120"
                     className="w-20"
                   />
                   <img
-                    src="./src/assets/davinci-resolve/davinci-logo/davinci.png"
+                    src="https://firebasestorage.googleapis.com/v0/b/download-ap.appspot.com/o/windows-x64bit%2FAppLogos%2Fdavinci.png?alt=media&token=05d16445-d52a-4136-ab67-df4b6b1ffb1f"
                     className="w-20"
                   />
                   <img
-                    src="./src/assets/windows/windows-logo/windows.png"
+                    src="https://firebasestorage.googleapis.com/v0/b/download-ap.appspot.com/o/windows-x64bit%2FAppLogos%2Fwindows.png?alt=media&token=a624fd66-f515-446b-83c2-1db99737f3c0"
                     className="w-14"
                   />
                 </div>
               </div>
               <select
                 id="whichApp"
-                className="border text-sm rounded-lg block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500"
+                className="border text-sm rounded-lg block w-full p-2.5 bg-gray-900 border-gray-800 placeholder-gray-800 text-white focus:ring-white focus:border-white"
                 value={whichApp}
                 onChange={(e) => setWhichApp(e.target.value)}
               >
-                <option value="./src/assets/adobe-premiere/premiere-logo/premiere.png">
+                <option value="https://firebasestorage.googleapis.com/v0/b/download-ap.appspot.com/o/windows-x64bit%2FAppLogos%2Fpremiere.png?alt=media&token=6291c7a0-5916-4497-9eff-9a7ff7b581f3">
                   Adobe Premiere Pro
                 </option>
-                <option value="./src/assets/after-effects/after-logo/after.png">
+                <option value="https://firebasestorage.googleapis.com/v0/b/download-ap.appspot.com/o/windows-x64bit%2FAppLogos%2Fafter.png?alt=media&token=e6066871-2926-4b05-95bf-ba7fc460f120">
                   Adobe After Effects
                 </option>
-                <option value="./src/assets/davinci-resolve/davinci-logo/davinci.png">
+                <option value="https://firebasestorage.googleapis.com/v0/b/download-ap.appspot.com/o/windows-x64bit%2FAppLogos%2Fdavinci.png?alt=media&token=05d16445-d52a-4136-ab67-df4b6b1ffb1f">
                   Davinci Resolve
                 </option>
-                <option value="./src/assets/windows/windows-logo/windows.png">
+                <option value="https://firebasestorage.googleapis.com/v0/b/download-ap.appspot.com/o/windows-x64bit%2FAppLogos%2Fwindows.png?alt=media&token=a624fd66-f515-446b-83c2-1db99737f3c0">
                   Windows
                 </option>
               </select>
@@ -257,28 +272,28 @@ const CreateExtension = () => {
               >
                 Which Category?
               </label>
-              <div className="grid grid-cols-4 gap-5">
+              <div className="grid grid-cols-4 gap-5 mb-2">
                 <img
-                  src="https://upload.wikimedia.org/wikipedia/commons/d/d9/HandBrake_Icon.png"
-                  className="w-20"
+                  src="https://firebasestorage.googleapis.com/v0/b/download-ap.appspot.com/o/windows-x64bit%2Fwindows-apps%2Fdiscord.png?alt=media&token=07542ea6-d59c-408d-969f-f397fbf62a44"
+                  className="w-24"
                 />
                 <img
-                  src="https://upload.wikimedia.org/wikipedia/tr/5/57/Discord_logo_old.png"
-                  className="w-20"
+                  src="https://firebasestorage.googleapis.com/v0/b/download-ap.appspot.com/o/windows-x64bit%2Fwindows-apps%2Fchrome.png?alt=media&token=9afe2378-c864-4228-b53e-e21cd69a6cf4"
+                  className="w-24"
                 />
                 <img
-                  src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Steam_Logo.png"
-                  className="w-20"
+                  src="https://firebasestorage.googleapis.com/v0/b/download-ap.appspot.com/o/windows-x64bit%2Fwindows-apps%2Fsteam.png?alt=media&token=cdc96106-49ac-4125-b825-982a139f2699"
+                  className="w-24"
                 />
                 <img
-                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Audacity_Logo.svg/2048px-Audacity_Logo.svg.png"
-                  className="w-20"
+                  src="https://firebasestorage.googleapis.com/v0/b/download-ap.appspot.com/o/windows-x64bit%2Fwindows-apps%2Fobs.png?alt=media&token=181f7c18-92fd-45b8-85c9-d2e6b3caf84d"
+                  className="w-24"
                 />
               </div>
             </div>
             <select
               id="category"
-              className="border text-l rounded-lg block w-full bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500 mb-5 text-center"
+              className="border text-l rounded-lg block w-full bg-gray-900 border-gray-900 placeholder-gray-900 text-white focus:ring-white focus:border-white mb-5 text-center p-1"
               value={category}
               onChange={(e) => setCategory(e.target.value)}
             >

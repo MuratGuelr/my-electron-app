@@ -8,11 +8,14 @@ const Favorites = () => {
   const [userDetails, setUserDetails] = useState(null);
   const [favoriteApps, setFavoriteApps] = useState([]);
 
-  const PremierePro = "./src/assets/adobe-premiere/premiere-logo/premiere.png";
-  const AfterEffects = "./src/assets/after-effects/after-logo/after.png";
+  const PremierePro =
+    "https://firebasestorage.googleapis.com/v0/b/download-ap.appspot.com/o/windows-x64bit%2FAppLogos%2Fpremiere.png?alt=media&token=6291c7a0-5916-4497-9eff-9a7ff7b581f3";
+  const AfterEffects =
+    "https://firebasestorage.googleapis.com/v0/b/download-ap.appspot.com/o/windows-x64bit%2FAppLogos%2Fafter.png?alt=media&token=e6066871-2926-4b05-95bf-ba7fc460f120";
   const DavinciResolve =
-    "./src/assets/davinci-resolve/davinci-logo/davinci.png";
-  const Windowsx64 = "./src/assets/windows/windows-logo/windows.png";
+    "https://firebasestorage.googleapis.com/v0/b/download-ap.appspot.com/o/windows-x64bit%2FAppLogos%2Fdavinci.png?alt=media&token=05d16445-d52a-4136-ab67-df4b6b1ffb1f";
+  const Windowsx64 =
+    "https://firebasestorage.googleapis.com/v0/b/download-ap.appspot.com/o/windows-x64bit%2FAppLogos%2Fwindows.png?alt=media&token=a624fd66-f515-446b-83c2-1db99737f3c0";
 
   useEffect(() => {
     const fetchUserData = async () => {

@@ -3,7 +3,8 @@ import { auth, db } from "../firebase/firebase";
 import { doc, onSnapshot } from "firebase/firestore";
 
 const AvatarProfile = ({ bigClass }) => {
-  const defaultImage = "./src/assets/defaultAvatar.webp";
+  const defaultImage =
+    "https://firebasestorage.googleapis.com/v0/b/download-ap.appspot.com/o/windows-x64bit%2FAppLogos%2FdefaultAvatar.webp?alt=media&token=409ba564-aa36-437f-952f-cc15987c41d3";
   const [userDetails, setUserDetails] = useState("");
 
   useEffect(() => {
