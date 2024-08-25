@@ -7,9 +7,6 @@ import "react-toastify/dist/ReactToastify.css";
 const MainLayout = () => {
   return (
     <>
-      <Navbar />
-      <Outlet />
-      {/* <AppURLTaker /> */}
       <ToastContainer
         transition={Slide}
         position="bottom-center"
@@ -24,6 +21,9 @@ const MainLayout = () => {
         className="custom-toast"
         draggable={true}
       />
+      <Navbar />
+      <Outlet />
+      {/* <AppURLTaker /> */}
     </>
   );
 };

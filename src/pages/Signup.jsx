@@ -39,8 +39,17 @@ const Signup = () => {
 
   return (
     <div className="bg-gray-900 min-h-screen">
+      <h3 className="text-white mb-3 bg-slate-800 p-3 inline-block absolute pr-4 pb-3 rounded-r-lg text-xl top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 -mt-40 -ml-36 z-50">
+        Signup
+      </h3>
+      <h3
+        className="text-white mb-3 bg-slate-700 p-3 inline-block absolute pr-4 pb-3 rounded-r-lg text-xl top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 -mt-40 -ml-16 hover:-mt-44 cursor-pointer transition-all"
+        onClick={() => navigate("/login")}
+      >
+        Login
+      </h3>
       <form
-        className="max-w-sm mx-auto bg-gray-800 p-5 justify-center w-full absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded"
+        className="max-w-sm mx-auto bg-gray-800 p-5 justify-center w-full absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded mt-24"
         onSubmit={handleRegister}
       >
         <h2 className="text-white mb-3">Sign Up</h2>
