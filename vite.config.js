@@ -8,11 +8,12 @@ export default defineConfig({
   build: {
     outDir: "dist",
     assetsDir: "assets",
+    emptyOutDir: true,
   },
   resolve: {
     alias: {
       "@": resolve(__dirname, "src"),
     },
   },
-  publicDir: "public",
+  publicDir: "src/locales",
 });

@@ -6,6 +6,7 @@ import { getDoc, doc } from "firebase/firestore";
 import { FaPlusCircle } from "react-icons/fa";
 import { MdFavorite } from "react-icons/md";
 import appIcon from "../assets/app.ico";
+import LanguageSelector from "./LanguageSelector";
 
 const Navbar = () => {
   const [userDetails, setUserDetails] = useState(null);
@@ -56,9 +57,12 @@ const Navbar = () => {
                   <NavLink to="/" className={isLinkActive}>
                     Home
                   </NavLink>
+                  {/*
+                  
                   <NavLink to="free-extensions" className={isLinkActive}>
                     Free Apps
                   </NavLink>
+                  */}
                   <NavLink to="favorites" className={isLinkActive}>
                     <MdFavorite size={22} />
                   </NavLink>
@@ -85,6 +89,11 @@ const Navbar = () => {
                 <NavLink to="/profile" className="ml-5">
                   <AvatarProfile />
                 </NavLink>
+              )}
+              {userDetails && (
+                <div>
+                  <LanguageSelector />
+                </div>
               )}
             </div>
           </div>

@@ -1,7 +1,9 @@
 const path = require("path");
-const { app, BrowserWindow } = require("electron");
+const { app, BrowserWindow, Menu } = require("electron");
 
 function createWindow() {
+  Menu.setApplicationMenu(null);
+
   const win = new BrowserWindow({
     width: 1280,
     height: 720,
@@ -13,10 +15,6 @@ function createWindow() {
       preload: path.join(__dirname, "preload.js"),
     },
     icon: path.join(__dirname, "src", "assets", "app.ico"),
-  });
-
-  win.webContents.on("did-finish-load", () => {
-    win.webContents.send("navigate", "/login");
   });
 
   if (app.isPackaged) {
